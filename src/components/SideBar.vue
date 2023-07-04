@@ -393,7 +393,6 @@ export default {
     height: 820px;
     box-shadow: none;
     background: none;
-    border: 2px solid black;
 
 
 }
@@ -499,5 +498,15 @@ table td:hover {
         box-shadow: 0 -12px 20px -12px rgba(0, 0, 0, 0.35), 0 12px 20px -12px rgba(0, 0, 0, 0.35);
     }
 }
+
+
+
+
+
+
+
+
+
+
 </style>
   

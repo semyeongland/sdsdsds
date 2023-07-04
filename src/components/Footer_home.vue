@@ -1,10 +1,6 @@
 <template>
     <footer>
-        <div class="school-Meals_container School">
-            <div class="school-Meals">
-                <div style="font-size: 30px;margin: 0 auto;">🍽️ 우리학교의 급식을 확인해보세요!</div>
-            </div>
-        </div>
+
         <div class="school-Timetable§Gender_container">
             <div class="school-Timetable School"></div>
             <div class="school-Gender School"></div>
@@ -32,36 +28,8 @@ footer {
 
 }
 
-#ga {
-    flex: 0;
-    transition: .5s;
-
-}
-
-.school-Meals {
-    transition: 1s;
-    width: 900px;
-    /*가상으로 잡아둠*/
-
-    margin: 10px 20px 10px 20px;
-
-    height: 300px;
-    flex: 1.65;
-
-    border-radius: 30px;
-
-    position: relative;
-
-    display: flex;
-
-    justify-content: space-around;
-    align-items: center;
-
-    box-shadow: 0 0 8px 2px #D8C4B6;
-    background-color: #fff;
 
 
-}
 
 
 

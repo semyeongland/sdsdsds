@@ -22,24 +22,6 @@ if (!schinfo || !stdnt || !lastUpdated || new Date().getTime() - parseInt(lastUp
   localStorage.setItem('schinfo', JSON.stringify(data));
   localStorage.setItem('stdnt', JSON.stringify(data2));
   localStorage.setItem('lastUpdated', currentTime.toString());
-
-  // axios.get('/.netlify/functions/api')
-  //   .then(function (response) {
-  //     const data = response.data;
-  //     const schinfo = data[0].list;
-  //     const stdnt = data[1].list;
-  //     const currentTime = new Date().getTime();
-
-  //     localStorage.setItem('schinfo', JSON.stringify(schinfo));
-  //     localStorage.setItem('stdnt', JSON.stringify(stdnt));
-  //     localStorage.setItem('lastUpdated', currentTime.toString());
-  //     window.location.reload();
-  //   })
-  //   .catch(function (error) {
-  //     console.log('오류가 발생했습니다. 새로고침해주세요.\n' + error)
-  //     // alert('오류가 발생했습니다. 새로고침해주세요.\n' + error)
-  //     // window.location.reload();
-  //   });
 }
 
 
@@ -53,11 +35,12 @@ export default {
 </script>
 
 <style>
+
 @font-face {
-  font-family: 'SUITE-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
 }
 
 * {
@@ -76,6 +59,7 @@ export default {
   height: 1900px;
   display: flex;
   background-color: #F0F5F9;
+  z-index: -2;
 }
 
 #content {

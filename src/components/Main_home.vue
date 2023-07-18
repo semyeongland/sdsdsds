@@ -7,6 +7,7 @@
             <div id="map"></div>
 
             <!-- 😛😛😛 맵 버튼 😛😛😛 -->
+            <div id="earth" class="map_bt"><font-awesome-icon :icon="['fas', 'earth-americas']" /></div>
             <div id="map_bt1" class="map_bt">길찾기</div>
             <div id="map_bt2" class="map_bt">로드뷰</div>
         </div>
@@ -51,9 +52,20 @@ export default {
 };
 </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
 /* ❤️💛💚💙💜🤎🖤🤍 모든 자료를 감싸는 부분 ❤️💛💚💙💜🤎🖤🤍 */
-
 .Parents_div {
     border-radius: 20px;
     flex-shrink: 0;
@@ -66,8 +78,9 @@ export default {
 
 /* ❤️💛💚💙💜🤎🖤🤍 모든영역을 감싸는 부분 ❤️💛💚💙💜🤎🖤🤍 */
 
+
 .main {
-    width: calc(100%-30px);
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
@@ -91,8 +104,7 @@ export default {
 
 
 .main>#school-Map_container {
-    max-width: 600px;
-    width: max(600px);
+    width: 600px;
     height: 450px;
     position: relative;
 
@@ -119,7 +131,7 @@ export default {
     border-radius: inherit;
     position: absolute;
     top: -35px;
-    left: 20px;
+    left: 100px;
 
     background-color: inherit;
     box-shadow: inherit;
@@ -135,9 +147,13 @@ export default {
     transform: translate(0, -7px);
 }
 
-#map_bt2 {
+#map_bt1 {
     margin-left: 75px;
 }
+#map_bt2 {
+    margin-left: 175px;
+}
+
 
 
 
@@ -179,7 +195,6 @@ export default {
 
 .main>#school-Data {
     width: 500px;
-    flex-shrink: 0;
     height: 450px;
     transition: .7s;
     position: relative;

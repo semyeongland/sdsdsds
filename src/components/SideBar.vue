@@ -1,11 +1,13 @@
 <template>
     <div id="sidebar">
-        <button v-for="(item, index) in icons" :key="index" :id="'icon-' + index" class="custom-icon"
-            @click="toggleContainer(index)" @mouseenter="toggleText(index, true)" @mouseleave="toggleText(index, false)"
-            :class="{ hover: activeButtons[index], 'clicked': clickedButton === index }">
-            <font-awesome-icon :icon="item" />
-            <span v-if="activeButtons[index]">{{ hoverText(index) }}</span>
-        </button>
+        <div id="sidebar_sub">
+            <button v-for="(item, index) in icons" :key="index" :id="'icon-' + index" class="custom-icon"
+                @click="toggleContainer(index)" @mouseenter="toggleText(index, true)" @mouseleave="toggleText(index, false)"
+                :class="{ hover: activeButtons[index], 'clicked': clickedButton === index }">
+                <font-awesome-icon :icon="item" />
+                <span v-if="activeButtons[index]">{{ hoverText(index) }}</span>
+            </button>
+        </div>
     </div>
 
     <div id="filter-container" class="sidebar_container" :class="{ active: filterContainerVisible }">
@@ -47,6 +49,8 @@
 </template>
   
 <script>
+
+
 export default {
     name: 'SiBal',
     data() {
@@ -112,7 +116,7 @@ export default {
             return this.subMenus.filter(subMenu => subMenu.name === this.subMenuVisible);
         },
         hoverText() {
-            const hoverTexts = ['필터', '학교 검색', '미야오옹', '내 주변'];
+            const hoverTexts = ['필터', '학교 검색', '미야오옹', '내 주변 학교'];
             return index => hoverTexts[index];
         }
     },
@@ -139,13 +143,23 @@ export default {
                 this.filterContainerVisible = false;
             }
 
+            if (this.clickedButton === index) {
+                this.clickedButton = null;
+            } else {
+                this.clickedButton = index;
+            }
+
             this.activeButtons = this.activeButtons.map((value, i) => i === index);
-            this.clickedButton = this.activeButtons[index] ? index : null;
         }
 
     }
 };
+
+
+
 </script>
+
+
 
 <style scoped>
 * {
@@ -159,14 +173,20 @@ export default {
     width: 90px;
     height: 1890px;
     background-color: #F5EFE7;
+    /* background-image: linear-gradient(to bottom, #F5EFE7 0%, #2F4858 100%); */
 
     z-index: 100;
     transition: .2s;
     border-radius: 20px;
 
     box-shadow: 0 0 8px 2px #2135551d;
-    
+}
 
+#sidebar_sub {
+    width: 90px;
+
+    height: 370px;
+    position: fixed;
 }
 
 .custom-icon {
@@ -188,48 +208,18 @@ export default {
     top: 20px;
 }
 
-.custom-icon:hover {
+/* .custom-icon:hover {
     background-color: #D8C4B6;
-}
+} */
 
 .custom-icon.clicked {
     background-color: #D8C4B6;
+    transform: translate(-50%) scale(1.1);
 
 }
 
 
 
-
-/* ❤️❤️❤️❤️ 사이드바 버튼 호버시 왼쪽 작은 파란 아이콘 ❤️❤️❤️❤️ */
-
-/* .custom-icon:hover::before {
-    content: "";
-    position: absolute;
-    left: -15px;
-    top: 50%;
-    
-    transform: translate(0, -50%) scale(1);
-    border-radius: 0 30px 30px 0;
-    width: 6px;
-    height: 30px;
-    background-color: #4F709C;
-
-}
-
-
-.custom-icon.clicked::before {
-    content: "";
-    position: absolute;
-    transition: 1s;
-
-    left: -15px;
-    top: 50%;
-    transform: translate(0, -50%);
-    border-radius: 0 30px 30px 0;
-    width: 7px;
-    height: 30px;
-    background-color: #4F709C;
-} */
 
 
 
@@ -247,7 +237,7 @@ export default {
     color: white;
     border-radius: 5px;
     font-size: 17px;
-    box-shadow: 0 0 8px  #21355576;
+    box-shadow: 0 0 8px #21355576;
     animation: mal 0.2s ease;
 }
 
@@ -414,7 +404,7 @@ export default {
 
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     display: block;
     line-height: 70px;
     border: none;
@@ -498,15 +488,5 @@ table td:hover {
         box-shadow: 0 -12px 20px -12px rgba(0, 0, 0, 0.35), 0 12px 20px -12px rgba(0, 0, 0, 0.35);
     }
 }
-
-
-
-
-
-
-
-
-
-
 </style>
   
